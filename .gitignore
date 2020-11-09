@@ -1,0 +1,5 @@
+# Project exclude paths
+/jeers-app/target/
+/jeers-ejb/target/
+/jeers-jpa/target/
+/jeers-web/target/
