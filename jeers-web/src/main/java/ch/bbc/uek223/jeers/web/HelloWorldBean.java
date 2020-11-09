@@ -16,4 +16,5 @@ public class HelloWorldBean {
 	public String getGreeting() {
 		return helloService.sayHello();
 	}
+
 }
