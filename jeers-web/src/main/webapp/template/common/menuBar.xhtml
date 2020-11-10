@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+<h:body>
+    <p:growl id="messages"/>
+    <h:form>
+        <p:menubar>
+            <p:submenu label="Event" icon="pi pi-calendar">
+                <p:menuitem value="New" icon="pi pi-plus" url="../event/event.xhtml"/>
+                <p:menuitem value="Edit" icon="pi pi-pencil" url="../event/eventEdit.xhtml"/>
+                <p:separator/>
+            </p:submenu>
+            <p:submenu label="Ticket" icon="pi pi-ticket">
+                <p:menuitem value="New" icon="pi pi-plus"/>
+                <p:menuitem value="Show Tickets" icon="pi pi-ticket" url="#"/>
+                <p:separator/>
+            </p:submenu>
+            <p:submenu label="Ticket Category" icon="pi pi-bars">
+                <p:menuitem value="New" url="#" icon="pi pi-plus"/>
+                <p:menuitem value="Edit" url="#" icon="pi pi-pencil"/>
+            </p:submenu>
+            <p:submenu label="User" icon="pi pi-user">
+                <p:menuitem value="New" url="#" icon="pi pi-plus"/>
+                <p:menuitem value="Edit" url="#" icon="pi pi-pencil"/>
+            </p:submenu>
+        </p:menubar>
+    </h:form>
+</h:body>
+</html>

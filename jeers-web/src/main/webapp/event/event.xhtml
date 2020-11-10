@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="../template/common/template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true"/>
+            <p:panel style="display:block; text-align:center" header="Event">
+                <div class="p-field p-grid">
+                    <p:outputLabel for="eventName" styleClass="p-col-fixed" style="width:100px" value="Event Name"/>
+                    <div class="p-col">
+                        <p:inputText id="eventName" value="#{event.eventName}"/>
+                    </div>
+                    <br/>
+                    <div class="p-col-fixed">
+                        <p:commandButton value="Add" action="#{event.addEvent}" update="@form"/>
+                    </div>
+                </div>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

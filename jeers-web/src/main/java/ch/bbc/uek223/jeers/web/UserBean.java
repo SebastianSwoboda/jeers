@@ -27,7 +27,7 @@ public class UserBean {
     public String login() {
         try {
             Person person = personService.getUser(firstName);
-            return "event.xhtml";
+            return "event/event.xhtml";
         } catch (Exception e) {
             return "loginerror.xhtml?faces-redirect=true";
         }
