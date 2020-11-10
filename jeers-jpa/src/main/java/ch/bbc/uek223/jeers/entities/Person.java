@@ -12,88 +12,88 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="PERSON")
-@NamedQueries({ @NamedQuery(name = "Person.findAll", query = "select p from Person p order by p.name") })
+@Table(name = "PERSON")
+@NamedQueries({@NamedQuery(name = "Person.findAll", query = "select p from Person p order by p.name"),
+        @NamedQuery(name = "Person.findByName", query = "select p from Person p where p.name = :name")})
 public class Person extends AbstractBaseEntity {
 
-	@Column(name = "NAME", nullable = false)
-	private String name;
+    @Column(name = "NAME", nullable = false)
+    private String name;
 
-	@Column(name = "VORNAME", nullable = false)
-	private String vorname;
+    @Column(name = "VORNAME", nullable = false)
+    private String vorname;
 
-	@Column(name = "ADRESSE", nullable = false)
-	private String adresse;
+    @Column(name = "ADRESSE", nullable = false)
+    private String adresse;
 
-	@Column(name = "ORT", nullable = false)
-	private String ort;
+    @Column(name = "ORT", nullable = false)
+    private String ort;
 
-	@Column(name = "EMAIL", nullable = false, unique = true)
-	private String email;
-	
-	@Column(name = "PASSWORT")
-	private String passwort;
+    @Column(name = "EMAIL", nullable = false, unique = true)
+    private String email;
 
-	// Rückbeziehung
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "person")
-	private List<PersonRolle> personRolle = new ArrayList<>();
+    @Column(name = "PASSWORT")
+    private String passwort;
 
-	public String getName() {
-		return name;
-	}
+    // Rückbeziehung
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "person")
+    private List<PersonRolle> personRolle = new ArrayList<>();
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getVorname() {
-		return vorname;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
-	}
+    public String getVorname() {
+        return vorname;
+    }
 
-	public String getAdresse() {
-		return adresse;
-	}
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
+    }
 
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
+    public String getAdresse() {
+        return adresse;
+    }
 
-	public String getOrt() {
-		return ort;
-	}
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 
-	public void setOrt(String ort) {
-		this.ort = ort;
-	}
+    public String getOrt() {
+        return ort;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setOrt(String ort) {
+        this.ort = ort;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public List<PersonRolle> getPersonRolle() {
-		return personRolle;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setPersonRolle(List<PersonRolle> personRolle) {
-		this.personRolle = personRolle;
-	}
+    public List<PersonRolle> getPersonRolle() {
+        return personRolle;
+    }
 
-	public String getPasswort() {
-		return passwort;
-	}
+    public void setPersonRolle(List<PersonRolle> personRolle) {
+        this.personRolle = personRolle;
+    }
 
-	public void setPasswort(String passwort) {
-		this.passwort = passwort;
-	}
-	
-	
+    public String getPasswort() {
+        return passwort;
+    }
+
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
+    }
+
 
 }

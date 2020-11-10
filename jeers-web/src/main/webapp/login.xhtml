@@ -16,8 +16,9 @@
                     <p:inputText id="firstname3" value="#{user.firstName}"/>
 
                 </div>
+                <br/>
                 <div class="p-col-fixed">
-                    <p:button value="Login"/>
+                    <p:commandButton value="Login" action="#{user.login}"/>
                 </div>
             </div>
         </h:form>
