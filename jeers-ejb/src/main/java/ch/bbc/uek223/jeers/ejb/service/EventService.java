@@ -1,6 +1,7 @@
 package ch.bbc.uek223.jeers.ejb.service;
 
 import ch.bbc.uek223.jeers.entities.Event;
+import ch.bbc.uek223.jeers.entities.Person;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -8,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Local
 @Stateless
@@ -31,6 +33,11 @@ public class EventService {
         em.merge(event);
         em.flush();
     }
+
+    public List<Event> getEvents() {
+        return em.createNamedQuery("Event.findAll", Event.class).getResultList();
+    }
+
 
 
 }

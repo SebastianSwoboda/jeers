@@ -11,11 +11,11 @@
                 <div class="p-field p-grid">
                     <p:outputLabel for="eventName" styleClass="p-col-fixed" style="width:100px" value="Event Name"/>
                     <div class="p-col">
-                        <p:inputText id="eventName" value="#{event.eventName}"/>
+                        <p:inputText id="eventName" value="#{eventController.eventName}"/>
                     </div>
                     <br/>
                     <div class="p-col-fixed">
-                        <p:commandButton value="Add" action="#{event.addEvent}" update="@form"/>
+                        <p:commandButton value="Add" action="#{eventController.addEvent}" update="@form"/>
                     </div>
                 </div>
             </p:panel>

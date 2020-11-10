@@ -10,7 +10,7 @@ import javax.persistence.NoResultException;
 
 @ManagedBean(name = "user")
 @RequestScoped
-public class UserBean {
+public class UserController {
     @EJB
     PersonService personService;
 
@@ -27,7 +27,7 @@ public class UserBean {
     public String login() {
         try {
             Person person = personService.getUser(firstName);
-            return "event/event.xhtml";
+            return "event.xhtml";
         } catch (Exception e) {
             return "loginerror.xhtml?faces-redirect=true";
         }

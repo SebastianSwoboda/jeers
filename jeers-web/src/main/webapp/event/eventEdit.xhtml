@@ -8,51 +8,27 @@
         <h:form id="form">
             <p:growl id="msgs" showDetail="true"/>
 
-            <p:dataTable id="cars1" var="car" value="#{dtEditView.cars1}" editable="true" style="margin-bottom:20px">
+            <p:dataTable id="events" var="event" value="#{eventController.events}" editable="true" style="margin-bottom:20px" selection="#{eventController.selectedEvent}"  selectionMode="single" rowKey="#{event.id}">
                 <f:facet name="header">
                     Row Editing
                 </f:facet>
 
-                <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs"/>
+                <p:ajax event="rowEdit" listener="#{eventController.onRowEdit}" update=":form:msgs"/>
                 <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs"/>
 
                 <p:column headerText="Id">
                     <p:cellEditor>
-                        <f:facet name="output"><h:outputText value="#{car.id}"/></f:facet>
-                        <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}"
+                        <f:facet name="output"><h:outputText value="#{event.id}"/></f:facet>
+                        <f:facet name="input"><p:inputText id="modelInput" value="#{event.id}"
                                                            style="width:100%"/></f:facet>
                     </p:cellEditor>
                 </p:column>
 
-                <p:column headerText="Year">
+                <p:column headerText="Name">
                     <p:cellEditor>
-                        <f:facet name="output"><h:outputText value="#{car.year}"/></f:facet>
-                        <f:facet name="input"><p:inputText value="#{car.year}" style="width:100%"
+                        <f:facet name="output"><h:outputText value="#{event.name}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{event.name}" style="width:100%"
                                                            label="Year"/></f:facet>
-                    </p:cellEditor>
-                </p:column>
-
-                <p:column headerText="Brand">
-                    <p:cellEditor>
-                        <f:facet name="output"><h:outputText value="#{car.brand}"/></f:facet>
-                        <f:facet name="input">
-                            <h:selectOneMenu value="#{car.brand}" style="width:100%">
-                                <f:selectItems value="#{dtEditView.brands}" var="man" itemLabel="#{man}"
-                                               itemValue="#{man}"/>
-                            </h:selectOneMenu>
-                        </f:facet>
-                    </p:cellEditor>
-                </p:column>
-
-                <p:column headerText="Color">
-                    <p:cellEditor>
-                        <f:facet name="output"><h:outputText value="#{car.color}"/></f:facet>
-                        <f:facet name="input">
-                            <h:selectOneMenu value="#{car.color}" style="width:100%">
-                                <f:selectItems value="#{dtEditView.colors}" var="color" itemLabel="#{color}"
-                                               itemValue="#{color}"/>
-                            </h:selectOneMenu>
-                        </f:facet>
                     </p:cellEditor>
                 </p:column>
 
@@ -60,6 +36,9 @@
                     <p:rowEditor/>
                 </p:column>
             </p:dataTable>
+            <p:contextMenu for="events">
+                <p:menuitem value="Delete" update="events" icon="pi pi-times" action="#{eventController.deleteEvent}"/>
+            </p:contextMenu>
         </h:form>
     </ui:define>
 </ui:composition>
